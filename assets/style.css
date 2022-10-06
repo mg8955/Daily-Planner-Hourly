@@ -1,0 +1,10 @@
+.fixed-h {
+    height: 80px;
+}
+
+#c-button {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid white;
+}
