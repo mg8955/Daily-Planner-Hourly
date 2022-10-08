@@ -1,5 +1,37 @@
+textarea {
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.jumbo-border {
+    border-bottom: 10px solid black;
+}
+
 .fixed-h {
     height: 80px;
+}
+
+.bg-past {
+    background-color: lightgray;
+}
+
+.bg-current {
+    background-color: red;
+}
+
+.bg-future {
+    background-color: green;
+}
+
+#text-pad {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightgray;
 }
 
 #c-button {
@@ -7,4 +39,5 @@
     height: 100%;
     border-radius: 0 5px 5px 0;
     border: 1px solid white;
+    border-left: 0;
 }
