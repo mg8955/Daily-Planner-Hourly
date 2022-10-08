@@ -1,6 +1,7 @@
 var plannerSection = $('#planner-section').addClass('container-fluid px-5 pb-5');
 
 var savedPlan = [];
+var nameOfSavedPlan = "Saved Plan";
 
 var date = moment().format("dddd, MMMM Do");
 $("#currentDate").text(date);
@@ -28,7 +29,7 @@ function generateRows(num) {
         var rowEl = $('<div>').addClass('row justify-content-center fixed-h flex-nowrap');
         var timeColEl = $('<div>').addClass('col-1 border border-left-0 border-right-0 ml-3 text-right pt-2').text(timeText);
         var textColEl = $('<div>').addClass('col-10 border border-right-0 px-2 bg-secondary').attr('id', 'text-col');        
-        var textField = $('<textarea>').addClass('w-100 h-100 border-0 rounded-0 m-0 pl-2').attr('id', 'text-loc').text('');
+        var textField = $('<textarea>').addClass('w-100 h-100 border-0 rounded-0 m-0 pl-2').attr('id', timeText).text('');
         applyColor(textField, i);
         var saveButton = $('<input>').addClass('btn btn-primary action').attr({type:'submit', value:'💾', id:'c-button'});
         var saveColEl = $('<div>').addClass('col-1 px-0');
@@ -45,10 +46,26 @@ function generateRows(num) {
 }
 
 function updateSavedPlan(saveText, textLoc) {
-    
+    var newEntry = {
+        text: saveText, 
+        loc: textLoc
+    };
+    for (i=0; i < savedPlan.length; i++) {
+        if (savedPlan[i].loc === newEntry.loc) {
+           savedPlan.splice(i, 1); 
+           localStorage.setItem(nameOfSavedPlan, JSON.stringify(savedPlan));
+        }
+    }
+    savedPlan.push(newEntry);
+    localStorage.setItem(nameOfSavedPlan, JSON.stringify(savedPlan));
 }
 
+// function displaySavedPlan() {
+
+// }
+
 generateRows(10);
+// displaySavedPlan();
 
 $('.btn').click(function() {
     var grabText = $($(this).parent().parent().children([1]).children([0]));

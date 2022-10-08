@@ -1,3 +1,15 @@
+body {
+    font-family: 'Hind Madurai', sans-serif;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    font-family: 'Rosario', sans-serif;
+}
+
 textarea {
     resize: none;
 }
